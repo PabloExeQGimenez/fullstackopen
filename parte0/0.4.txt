@@ -14,4 +14,5 @@ sequenceDiagram
     server-->>browser: Confirmation response
     deactivate server
 
+
     Note right of browser: Browser updates the UI with the new note
