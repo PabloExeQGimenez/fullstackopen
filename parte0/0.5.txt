@@ -1,0 +1,24 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate server
+    server-->>browser: Serve SPA HTML file
+    deactivate server
+
+    browser->>server: Request for SPA resources (CSS, JS)
+    activate server
+    server-->>browser: Serve SPA resources (CSS, JS)
+    deactivate server
+
+    browser-->>browser: Browser renders the SPA
+
+    Note right of browser: User interacts with the SPA
+
+    browser->>server: API requests for data (e.g., notes)
+    activate server
+    server-->>browser: Serve requested data (JSON, etc.)
+    deactivate server
+
+    browser-->>browser: SPA dynamically updates UI

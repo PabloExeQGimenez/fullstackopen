@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant browser
+    participant server
+    participant database
+
+    Note right of browser: User creates a new note in the SPA
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/notes (New Note Data)
+    activate server
+    server-->>database: Save new note data
+    activate database
+    database-->>server: Confirmation (Note saved successfully)
+    deactivate database
+    server-->>browser: Confirmation response
+    deactivate server
+
+    Note right of browser: Browser updates the UI with the new note
